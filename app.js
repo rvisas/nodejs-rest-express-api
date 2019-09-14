@@ -13,17 +13,15 @@ bookRouter.route('/books')
     if (req.query.genre) {
       query.genre = req.query.genre;
     }
-    Book.find( query, (err, books) => {
-        return (err) ? res.send(err) : res.json(books);
-      }
+    Book.find(query, (err, books) => 
+      (err) ? res.send(err) : res.json(books)
     );
   });
 
-  bookRouter.route('/books/:bookId')
-  .get((req, res) => {    
-    Book.findById( req.params.bookId, (err, book) => {
-        return (err) ? res.send(err) : res.json(book);
-      }
+bookRouter.route('/books/:bookId')
+  .get((req, res) => {
+    Book.findById(req.params.bookId, (err, book) =>
+      (err) ? res.send(err) : res.json(book)
     );
   });
 
